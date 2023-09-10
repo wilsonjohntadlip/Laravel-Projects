@@ -9,12 +9,12 @@
 <body>
 
     @auth
+    
         <p>Congratulations, you are logged in!</p>
         <form action="/logout" method="POST">
             @csrf
             <button>Logout</button>
         </form>
-
         <div style="border: 3px solid black;">
             <h2>Create a New Post</h2>
             <form action="/create-post" method="POST">
@@ -29,8 +29,8 @@
             <h2>All Posts</h2>
             @foreach ($posts as $post)
                 <div style="background-color: gray; padding: 10px; margin: 10px; border: 3px solid black;">
-                    <h3>{{ $post->title }}</h3>
-                    {{ $post->body }}
+                    <h3>{{$post['title']}}</h3>
+                    {{$post['body']}}
                 </div>
             @endforeach
 

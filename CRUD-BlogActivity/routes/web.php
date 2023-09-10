@@ -17,7 +17,10 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    $posts = Post::all();
+    $posts = [];
+    if (auth()->check()) {
+        $posts = auth()->user()->usersCoolPosts()->latest()->get();
+    }
     return view('home', ['posts' => $posts]);
 });
 
