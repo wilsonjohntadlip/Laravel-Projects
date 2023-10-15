@@ -9,3 +9,4 @@
     
 </head>
 <body class="bg-gray-700 min-h-screen">
+<x-messages />
